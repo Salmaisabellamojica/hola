@@ -1,13 +1,33 @@
-function cambiarTexto() {
+function cambiarTexto(){
 
-    document.getElementByID("descripcion").innerHTML = "Ahora estás viendo nuestras ofertas!"
+    let texto = document.getElementById("descripcion");
+
+    if(texto.innerHTML === "Ahora estás viendo nuestras ofertas!"){
+        texto.innerHTML = "La mejor tienda de tecnología.";
+
+    }else{
+    
+        texto.innerHTML = "Ahora estás viendo nuestras ofertas!";
+
+    }
 
 }
 
+let color = true
+
 function modoOscuro() {
 
-    document.body.style.backgroundColor = "black"
-    document.body.style.color = "white"
+    if(color){
+        document.body.style.backgroundColor = "black"
+        document.body.style.color = "white"
+        color = false
+        document.getElementById("modoOscuro").innerHTML = "Modo claro"
+    }else{
+        color = true
+        document.body.style.backgroundColor = "white"
+        document.body.style.color = "black"
+        document.getElementById("modoOscuro").innerHTML = "Modo oscuro"
+    }
 
 }
 
