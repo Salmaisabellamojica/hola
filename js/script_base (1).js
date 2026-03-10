@@ -42,13 +42,44 @@ function agregarCarrito() {
 
 function enviarFormulario() {
 
-    let nombre = document.getElementById("nombre").value
-    let correo = document.getElementById("correo").value
+    var nombre = document.getElementById("nombre").value
+    let nombreValido = /^[a-z]+\s?[a-z]+?$/gim;
 
-    if (nombre == "") {
-        alert("El nombre es obligatorio")
+    var correo = document.getElementById("correo").value
+    let correoValido = correo.match(/[a-zA-Z0-9._-]+@[a-zA-Z0-9_.-]+\.com/gim);
+
+    var edad = document.getElementById("edad").value
+    let edadValida = edad.match(/^[0-9]+$/gim); 
+
+    //datos vacíos 
+    
+    if (nombre == "" || correo == "" || edad == "") {
+        alert("El nombre,el correo y la edad son obligatorios")
+        return
     }
 
-    console.log("Formulario enviado")
+    if(nombreValido == null){
+        alert("Nombre inválido");
+    }
+
+    if(edad >0 && edad < 18){
+        alert("No puedes comprar productos de esta tienda");
+        return
+    }else if(edad >= 18){
+    
+    }else{
+        alert("Edad inválida, no puedes comprar productos");
+        return
+    }
+    
+    if(correoValido == null){
+        alert("Correo inválido");
+    }else{
+        alert("Formulario enviado correctamente");
+    }
+    
+    document.getElementById("formContacto").reset();
+    console.log("Formulario enviado");
+
 
 }
